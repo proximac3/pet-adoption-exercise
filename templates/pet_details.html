@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+ 
+<title> {% block title%} Pet Details {% endblock%} </title>
+ 
+{% block content%} 
+
+<div class="container">
+        <h1> {{pet.name}} </h1>
+        <div class="row">
+            <div class="card col-12">
+                <img class="rounded mx-auto " src={{pet.photo_url}} alt="Card image cap" width="450" height="600">
+                <div class="card-body">
+                    <h5 class="card-title"> Name : {{pet.name}} </h5>
+                    <h5 class="card-title"> Age : {{pet.age}} </h5>
+                    <h5 class="card-title"> Species: {{pet.species}} </h5>
+                    <p class="card-text"> About: {{pet.notes}}</p>
+
+                    {% if pet.available == true %}
+                        <p class="card-text">Available : Yes </p>
+                    {% else %} 
+                        <p class="card-text">Available : No </p>
+                    {% endif %}
+
+                    <a href=/edit/{{pet.id}} class="btn btn-primary"> EDIT </a>
+                </div>
+            </div>
+
+        </div>
+
+        <a href="/" class="btn btn-primary"> Go Back </a>
+    </div>
+
+{% endblock %}
